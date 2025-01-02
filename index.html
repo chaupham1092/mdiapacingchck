@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Pacing Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Media Spend Pacing Tracker</h1>
+    <form id="pacingForm">
+      <p class="note">
+        <strong>Note:</strong> 
+        (i) The <strong>start date</strong> cannot be in the future.  
+        (ii) The <strong>end date</strong> cannot be in the past.  
+        (iii) The campaign must include today (i.e., today’s date must be between the start and end dates).<br><br>
+        <strong>Today's date is: </strong><span id="todayDate"></span><br>
+      </p>
+
+      <label for="totalBudget">Total Budget ($):</label>
+      <input type="number" id="totalBudget" required>
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" required>
+
+      <label for="actualSpend">Actual Spend ($):</label>
+      <input type="number" id="actualSpend" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="results"></div>
+    <div id="explanation">
+      <h3>Explanation of Results:</h3>
+      <p><strong>Planned Spend:</strong> This is how much you should have spent by now to stay on track with your total budget. <br><strong>Formula:</strong> (Total Budget / Campaign Duration) * Elapsed Days<br><strong>Note:</strong> Elapsed days refer to the number of days that have passed since the start date up until today.</p>
+      <p><strong>Spend Rate:</strong> This shows how your actual spend compares to the planned spend. If it's over 100%, you're spending faster than expected. <br><strong>Formula:</strong> (Actual Spend / Planned Spend) * 100</p>
+      <p><strong style="color: blue">Current Daily Spend:</strong> The average daily spend based on the actual spend so far. <br><strong>Formula:</strong> Actual Spend / Elapsed Days</p>
+      <p><strong style="color: blue">Ideal Daily Spend:</strong> The daily amount you need to spend in the remaining days to stay on track with your budget. <br><strong>Formula:</strong> Remaining Budget / Remaining Days</p>
+      <p><strong>Remaining Budget:</strong> The budget you have left to spend. <br><strong>Formula:</strong> Total Budget - Actual Spend</p>
+      <p><strong>Remaining Days:</strong> The number of days left in your campaign. <br><strong>Formula:</strong> Campaign Duration - Elapsed Days</p>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+<!-- "Key Takeaway: Focus on these two metrics:
+
+Current Daily Spend: Your daily spend so far.
+Ideal Daily Spend: The amount you should be spending daily to stay on track.
+Comparing these helps you know if adjustments are needed to stay on pace. You want to make your daily spend close to ideal daily spend" -->
+
